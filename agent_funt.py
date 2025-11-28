@@ -18,7 +18,7 @@ from groq import Groq
 client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 MODEL = "llama-3.3-70b-versatile"
 
-def groq_chat(messages: List[Dict[str, str]], temperature=0.2) -> str:
+def groq_chat(messages: List[Dict[str, str]], temperature=0.8) -> str:
     resp = client.chat.completions.create(
         model=MODEL,
         messages=messages,

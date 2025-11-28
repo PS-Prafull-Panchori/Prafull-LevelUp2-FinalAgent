@@ -20,6 +20,34 @@ def get_weather(latitude: float, longitude: float) -> Dict[str, Any]:
     r.raise_for_status()
     return r.json().get("current", {})
  
+
+# ---- City → Coordinates (Open-Meteo Geocoding) ----
+@mcp.tool()
+def city_to_coords(city: str) -> Dict[str, Any]:
+    """
+    Convert a city name into latitude & longitude using Open-Meteo Geocoding API.
+    Returns the best match.
+    """
+    url = "https://geocoding-api.open-meteo.com/v1/search"
+    params = {"name": city, "count": 1, "language": "en", "format": "json"}
+
+    r = requests.get(url, params=params, timeout=20)
+    r.raise_for_status()
+    data = r.json()
+    
+    results = data.get("results")
+    if not results:
+        return {"error": f"No location found for '{city}'"}
+
+    best = results[0]
+
+    return {
+        "city": best.get("name"),
+        "country": best.get("country"),
+        "latitude": best.get("latitude"),
+        "longitude": best.get("longitude"),
+    }
+
 # ---- Book recs (Open Library) ----
 @mcp.tool()
 def book_recs(topic: str, limit: int = 5) -> Dict[str, Any]:
