@@ -57,9 +57,15 @@ pip install groq
 python agent-fun.py
 
 ```
-<h2>Note: Ignore SSL Certificate error
+<h2>Note: Stretch goal any of two -  </h2>
+<ul>
+<li>
+1. Add a city_to_coords(city) tool using Open‑Meteo’s geocoding, so users can type a city instead of coordinates. - Done </li>
+<li>2. Change model parameters like temperature, topP , and see how it impacts the results </li>
 
-The error only affects analytics upload, your local chat UI still works at the shown URL. </h2>
+</ul>
+
+
 
 
  
