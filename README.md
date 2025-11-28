@@ -1,6 +1,12 @@
 # Prafull-LevelUp2-FinalAgent
 <h1>Build an Agent with MCP tool and GroqAPi and Model</h1>
 
+<h2>Prerequisites or setup to run MCP inspector</h2>
+<ul>
+  <li>1. Under env environment in python install this  - pip install "mcp[cli]"  </li>
+  <li>2. After run this - mcp dev server_fun.py</li>
+  <li>3. It ill open in browser where you can see the tools connected</li>
+</ul>
 
 <h2>Prerequisites</h2>
 <ul>
